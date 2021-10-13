@@ -47,3 +47,15 @@ To run it:
 ```
 npx babel-node src/server.js
 ```
+
+For post requests install body parser
+
+```
+npm install --save body-parser
+```
+
+and import it at server.js
+
+```
+import bodyParser from 'body-parser';
+```
