@@ -137,3 +137,8 @@ db.articles.find({name: 'learn-react'}).pretty()
 
 control + c to exit
 
+Now install the dependency to express
+
+```
+npm install --save mongodb
+```
