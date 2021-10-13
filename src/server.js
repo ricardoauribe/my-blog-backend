@@ -61,6 +61,8 @@ app.post('/api/articles/:name/upvote', async (req, res) => {
 
 
 //End point to add comments to a given article
+//This will use withDB sending a function that retrieves the received article through params 
+//and the adds a comment from the received req body and uses it to update the comments section at the DB
 app.post('/api/articles/:name/add-comment', (req, res) => {
   
   const {username, text} = req.body;
