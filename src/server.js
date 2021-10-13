@@ -1,7 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { MongoClient } from 'mongodb';
+import path from 'path';
+
 const app = express();
+
+//Setting up where the static content is
+//This is what we build from the react app at the front end
+app.use(express.static(path.join(__dirname, '/build')));
 
 //This will tell the app that the requests may have a body to be parsed
 app.use(bodyParser.json());
@@ -79,10 +85,10 @@ app.post('/api/articles/:name/add-comment', (req, res) => {
     const updatedArticleInfo = await db.collection('articles').findOne({name: articleName});
     res.status(200).json(updatedArticleInfo)
   }, res);
-  
+});
 
-  
-
-})
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/build/index.html'));
+});
 
 app.listen(8000, () => console.log('Listeningn on port 8000'));
