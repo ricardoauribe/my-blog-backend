@@ -80,3 +80,60 @@ Finally to make this easier to read add it as an script at package.json
     "start": "npx nodemon --exec npx babel-node src/server.js"  
   },
 ```
+
+## Mongo DB
+
+Go to MongoDB site to find the latest instructions to install
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+```
+brew tap mongodb/brew
+brew install mongodb-community@5.0
+```
+
+And Start the service
+
+```
+brew services start mongodb-community@5.0
+```
+
+or to stop the service:
+
+```
+brew services stop mongodb-community@5.0
+```
+
+Once started create a db
+
+´´´
+mongo
+use my-blog
+´´´
+
+To insert a document
+
+```
+db.articles.insert([{ name: 'learn-react', 
+... upvotes: 0,
+... comments: [],
+... }, {
+... name: 'learn-node',
+... upvotes: 0,
+... comments: [],
+... }, {
+... name: 'my-thoughts-on-resumes',
+... upvotes: 0,
+... comments: [],
+... }])
+```
+
+To check the insertion
+
+```
+db.articles.find({})
+db.articles.find({name: 'learn-react'}).pretty()
+```
+
+control + c to exit
+
