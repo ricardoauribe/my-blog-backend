@@ -59,3 +59,24 @@ and import it at server.js
 ```
 import bodyParser from 'body-parser';
 ```
+
+Now install nodemon for hot reloading
+
+```
+npm install --save-dev nodemon
+```
+
+This will enable us to use nodemon to reload the npm babel instruction by running:
+
+```
+npx nodemon --exec npx babel-node src/server.js 
+```
+
+Finally to make this easier to read add it as an script at package.json
+
+```
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon --exec npx babel-node src/server.js"  
+  },
+```
