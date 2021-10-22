@@ -33,7 +33,7 @@ Then add the .babelrc file with
 Over server.js create a mininimal server
 
 ```
-import { Express } from "express";
+import express from 'express';
 
 const app = express();
 
